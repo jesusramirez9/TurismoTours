@@ -14,7 +14,7 @@
                 <p class="text-center text-2xl">
                     {{ $recibido }}
                 </p>
-                <p class="uppercase text-center">Comprado</p>
+                <p class="uppercase text-center">Recibido</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-credit-card"></i>
                 </p>
@@ -23,7 +23,7 @@
                 <p class="text-center text-2xl">
                     {{ $enviado }}
                 </p>
-                <p class="uppercase text-center">En curso</p>
+                <p class="uppercase text-center">Procesado</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-truck"></i>
                 </p>
@@ -50,7 +50,7 @@
 
         @if ($orders->count())
         <section class="bg-white  rounded-lg px-0 md:px-12 shadow-lg py-8 mt-12 text-gray-700">
-            <h1 class="text-center md:text-left text-2xl mb-4">Pedidos recientes</h1>
+            <h1 class="text-center md:text-left text-2xl mb-4">Reservas recientes</h1>
 
             <ul>
                 @foreach ($orders as $order)
@@ -79,7 +79,7 @@
                                 @endswitch
                             </span>
                             <span>
-                                Orden: {{$order->id}}
+                                Reserva: {{$order->id}}
                                 <br>
                                 {{$order->created_at->format('d/m/Y')}}
                             </span>
@@ -93,7 +93,7 @@
                                             Recibido
                                             @break
                                             @case(3)
-                                            Enviado
+                                            Procesando
                                             @break
                                         @case(4)
                                             Reservado
@@ -121,7 +121,7 @@
         @else
         <div class="bg-white  rounded-lg px-12 shadow-lg py-8 mt-12 text-gray-700">
             <span class="font-bold text-lg">
-                No existe Registro de ordenes
+                No existe Registro de reserva
             </span>
         </div>
         @endif

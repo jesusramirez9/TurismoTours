@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\OrderController;
@@ -30,6 +31,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
+
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
@@ -37,8 +40,8 @@ Route::get('products/{product}', [ProductController::class, 'show'])->name('prod
 Route::get('search', SearchController::class)->name('search');
 
 Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
-
-Route::middleware(['auth', 'verified'])->group(function () {
+// Route::middleware(['auth', 'verified'])
+Route::middleware('auth')->group(function () {
 
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
 
@@ -66,6 +69,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('conocenos', function () {
     return view('web.conocenos');
 })->name('conocenos');
+
+Route::get('publicidad', function () {
+    return view('web.publicidad');
+})->name('publicidad');
+
 
 // Route::get('servicios', function () {
 //     return view('web.servicios');

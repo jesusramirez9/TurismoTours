@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="{{ asset('vendor/flexSlider/flexslider.css') }}">
     {{-- Animate css --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    {{-- Botman --}}
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
     @stack('link')
     @livewireStyles
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -57,7 +61,7 @@
         @livewire('footer')
 
 
-        <div class="fondo_bg  mt-8 py-2 posfixd foot_sharp_usr ">
+        <div class="bg-gradient  mt-8 py-2 posfixd foot_sharp_usr ">
             <div class="container flex justify-between">
 
                 <div class="mx-4 ">
@@ -106,7 +110,7 @@
 
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                      this.closest('form').submit();">
+                                                                                                                  this.closest('form').submit();">
                                             {{ __('Log Out') }}
                                         </x-jet-dropdown-link>
                                     </form>
@@ -165,9 +169,36 @@
     </script>
     @stack('script')
     <script src="{{ asset('plugin/scrollflow/eskju.jquery.scrollflow.min.js') }}"></script>
-    <script>
-       
-    </script>
+
+    {{-- <script>
+        var botmanWidget = {
+            title: 'Asesor de Alecka',
+
+            introMessage: 'Hola, soy tu asesor de ventas! Te asistiré para que puedas tener la mejor propuesta dentro de tus posibilidades.',
+            mainColor: '#04214D',
+            aboutText: '',
+            bubbleBackground: '#04214D',
+            headerTextColor: '#fff',
+        };
+    </script> --}}
+
+    {{-- <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script> --}}
+    {{-- <script>
+        $(document).on('click', '.desktop-closed-message-avatar img', function() {
+            var iframe = document.getElementById("chatBotManFrame");
+            iframe.addEventListener('load', function() {
+                var htmlFrame = this.contentWindow.document.getElementsByTagName("html")[0];
+                var bodyFrame = this.contentWindow.document.getElementsByTagName("body")[0];
+                var headFrame = this.contentWindow.document.getElementsByTagName("head")[0];
+
+                var image =
+                    "https://images.unsplash.com/photo-1501597301489-8b75b675ba0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80"
+
+                htmlFrame.style.backgroundImage = "url(" + image + ")";
+                bodyFrame.style.backgroundImage = "url(" + image + ")";
+            });
+        });
+    </script> --}}
 </body>
 
 </html>

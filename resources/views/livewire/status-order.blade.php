@@ -42,6 +42,7 @@
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
             <p class="text-gray-700 uppercase"> <span class="font-semibold">Número de orden:</span>
                 Orden-{{ $order->id }}</p>
+                {{$rpta}}
             <form wire:submit.prevent="update">
                 <div class="flex space-x-3 mt-2">
                     <x-jet-label>
@@ -50,11 +51,11 @@
                     </x-jet-label>
                     <x-jet-label>
                         <input wire:model="status" type="radio" name="status" value="3" class="mr-2" />
-                        ENVIADO
+                        PROCESADO
                     </x-jet-label>
                     <x-jet-label>
                         <input wire:model="status" type="radio" name="status" value="4" class="mr-2" />
-                        ENTREGADO
+                        RESERVADO
                     </x-jet-label>
                     <x-jet-label>
                         <input wire:model="status" type="radio" name="status" value="5" class="mr-2" />
@@ -85,8 +86,8 @@
                         <p class="text-sm">Los productos deben ser recogidos en tienda</p>
                         <p class="text-sm">Calle falsa 123</p>
                     @else
-                        <p class="text-sm">Los productos serán enviados a:</p>
-                        <p class="text-sm">{{ $envio->address }}</p>
+                        <p class="text-sm">El cliente será recogido en:</p>
+                      
                         <p>{{ $envio->department }} - {{ $envio->city }} -
                             {{ $envio->district }}</p>
                     @endif
@@ -94,7 +95,7 @@
 
                 <div>
                     <p class="text-lg font-semibold uppercase">Datos de contacto</p>
-                    <p class="text-sm">Persona que recibirá el producto: {{ $order->contact }}</p>
+                    <p class="text-sm">Persona quien recibirá el servicio: {{ $order->contact }}</p>
                     <p class="text-sm">Teléfono de contacto {{ $order->phone }}</p>
                 </div>
             </div>
@@ -149,6 +150,11 @@
             </table>
 
         </div>
+
+    </div>
+    <div class="container">
+        {{$order->user()->first()->email}}
+     
 
     </div>
 </div>

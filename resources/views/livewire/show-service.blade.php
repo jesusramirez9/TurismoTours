@@ -7,7 +7,7 @@
 <div class=" py-10 bg-gray-100">
     <div class="container">
         @foreach ($services as $service)
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-10 items-center bg-gray-50 p-8 rounded-lg mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-10 items-center bg-gray-50 p-8 rounded-lg mb-8">
             
                 <div class="col-span-1">
                     <div>

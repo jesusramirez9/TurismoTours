@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4 text-2xl text-blue-800  font-bold ">
                         SOMOS UNA AGENCIA DE CONFIANZA
                     </h1>
-                    <p class="text-justify">
+                    <p class="text-justify mx-6 md:mx-0">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur, repudiandae nobis quos repellendus veritatis harum placeat voluptatum architecto quia vel consequatur velit saepe. Accusantium dignissimos error nesciunt sequi, neque fugit!
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit veritatis dolorum odio dolorem officia et autem! Sequi fuga voluptatum molestias qui, quo iusto, itaque adipisci nesciunt illo enim facilis a. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sapiente magnam amet? Incidunt quos necessitatibus tempore sequi asperiores cum dolorem quisquam, dignissimos eos illo iusto reprehenderit et harum nesciunt cupiditate.
                     </p>
@@ -19,7 +19,7 @@
                     </p>
                 </div>
             </div>
-            <div class="">
+            <div class="mx-6 md:mx-0">
                 <p class="my-4 text-2xl font-bold uppercase text-center">Contáctanos:</p>
                 <form action="{{ route('contacto.store') }}" method="POST">
                     @csrf

@@ -2,8 +2,7 @@
 
 namespace App\Http\Livewire;
 
-
-
+use App\Mail\OrderShipped;
 use App\Models\Order;
 use GuzzleHttp\Psr7\Request;
 use Livewire\Component;
@@ -45,7 +44,7 @@ class PaymentOrder extends Component
         $this->order->status = 2;
         $this->order->save();
 
-        $correo = new ResumenMailable(null);
+        $correo = new OrderShipped($this->order);
         Mail::to( auth()->user()->email)->send($correo);
 
         return redirect()->route('orders.show', $this->order);

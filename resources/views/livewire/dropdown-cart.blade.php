@@ -23,7 +23,11 @@
                         <article class="flex-1">
                             <h1 class="font-bold">{{$item->name}}</h1>
                             <div class="flex">
-                                <p>Cant: {{$item->qty}}</p>
+                                <p>Cant: {{$item->qty}} <span>@if ($item->qty==1)
+                                    persona
+                                @else
+                                    personas
+                                @endif</span> </p>
                                 @isset($item->options['color'])
                                     <p class="mx-2">- Color:  {{ __($item->options['color']) }}</p>
                                 @endisset
@@ -45,7 +49,7 @@
             </ul>
             @if (Cart::count())
                 <div class="py-2 px-3">
-                    <p class="text-lg text-gray-700 mt-2 mb-3"><span class="font-bold">Total: </span> S/ {{ Cart::subtotal() }}</p>
+                    <p class="text-lg text-gray-700 mt-2 mb-3"><span class="font-bold">Total: </span> S/ {{ Cart::subtotal() }}  Nuevos soles</p>
                   
                     <x-button-enlace href="{{route('shopping-cart')}}" color="orange" class="w-full">Ir a la Reserva</x-button-enlace>
                     <a class="text-sm cursor-pointer hover:underline mt-3 inline-block text-red-600 hover:text-red-800" wire:click="destroy">

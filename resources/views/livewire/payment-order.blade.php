@@ -60,12 +60,12 @@
                             <p class="text-sm colorbroywm font-bold">Serán recogidos en:</p>
                             <p class="text-sm colorbroywm font-bold">Calle falsa 123</p>
                         @else
-                            <p class="text-sm colorbroywm font-bold">Los productos serán enviados a:</p>
-                            <p class="colorbroywm font-normal">{{ $envio->address }}</p>
+                            <p class="text-sm colorbroywm font-bold">Ustes será recogido en:</p>
+                           
                             <p class="colorbroywm font-normal">{{ $envio->department }} - {{ $envio->city }} -
                                 {{ $envio->district }}</p>
                             <p class="text-sm colorbroywm font-bold">Referencia:</p>
-                            <p class="colorbroywm font-normal  ">{{ $envio->references }}</p>
+                      
                         @endif
                     </div>
 

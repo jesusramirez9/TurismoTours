@@ -33,9 +33,9 @@
         </div>
 
         <div x-data="{ envio_type: @entangle('envio_type') }">
-            <p class="mt-6 mb-3 text-xl  font-bold">Elige un destino</p>
+            <p class="mt-6 mb-3 text-xl  font-bold">Elige el destino de embarque</p>
  
-            <label class="bg-white rounded-lg shadow px-6 py-4 flex items-center mb-4 cursor-pointer">
+            {{-- <label class="bg-white rounded-lg shadow px-6 py-4 flex items-center mb-4 cursor-pointer">
                 <input x-model="envio_type" type="radio" value="1" name="envio_type" class="text-gray-600">
                 <span class="ml-2 colorbroywm font-bold">
                     Recojo en tienda (Calle Falsa 123)
@@ -44,13 +44,13 @@
                 <span class=" colorbroywm font-bold ml-auto">
                     Gratis
                 </span>
-            </label>  
+            </label>   --}}
 
             <div class="bg-white rounded-lg shadow">
                 <label class="px-6 py-4 flex items-center cursor-pointer">
                     <input x-model="envio_type"  type="radio" value="2" name="envio_type" class="text-gray-600" >
                     <span class="ml-2 colorbroywm font-bold">
-                        Envío a domicilio
+                        Te recogeremos en:
                     </span>
 
                 </label>
@@ -104,18 +104,6 @@
                         </select>
 
                         <x-jet-input-error for="district_id" />
-                    </div>
-
-                    <div class="col-span-2 md:col-span-1">
-                        <x-jet-label class=" font-bold" value="Dirección" />
-                        <x-jet-input class="w-full" wire:model="address" type="text" />
-                        <x-jet-input-error for="address" />
-                    </div>
-
-                    <div class="col-span-2">
-                        <x-jet-label class=" font-bold" value="Referencia" />
-                        <x-jet-input class="w-full" wire:model="references" type="text" />
-                        <x-jet-input-error for="references" />
                     </div>
 
                 </div>

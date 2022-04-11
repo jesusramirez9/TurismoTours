@@ -10,9 +10,12 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class AddCartItem extends Component
 {
     use LivewireAlert;
+    protected $listeners = ['render'];
+    
     public $product;
     public $qty=1;
     public $quantity;
+    public $open_edit = false;
     public $options = [
         'color_id' => null,
         'size_id' => null
@@ -40,10 +43,15 @@ class AddCartItem extends Component
         ]);
 
         $this->quantity = qty_available($this->product->id);
-        $this->alert('success', 'Producto agregado');
+        $this->open_edit = true;
+        $this->alert('success', 'Servicio agregado');
         $this->reset('qty');
-
+        $this->emitTo('modal-cart','render');
         $this->emitTo('dropdown-cart','render');
+    }
+    public function cerrar(){
+        $this->open_edit = false;
+
     }
     public function render()
     {

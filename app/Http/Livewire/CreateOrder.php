@@ -20,11 +20,9 @@ class CreateOrder extends Component
     public $prenda = 0;
 
 
-    public $envio_type = 1;
+    public $envio_type = 2;
 
-    public $address, $contact, $phone, $shipping_cost = 0;
-
-    public $references;
+    public $contact, $phone, $shipping_cost = 0;
 
     public $departments, $cities = [], $districts=[];
 
@@ -57,7 +55,7 @@ class CreateOrder extends Component
     public function updatedEnvioType($value){
         if ($value == 1) {
            $this->resetValidation([
-            'department_id', 'city_id', 'district_id','address', 'references'
+            'department_id', 'city_id', 'district_id'
            ]);
         }
     }
@@ -86,8 +84,7 @@ class CreateOrder extends Component
            $rules['department_id'] = 'required';
            $rules['city_id'] = 'required';
            $rules['district_id'] = 'required';
-           $rules['address'] = 'required';
-           $rules['references'] = 'required';
+        
         }
         $this->validate($rules);
     
@@ -116,8 +113,7 @@ class CreateOrder extends Component
                
                 'city' => City::find($this->city_id)['name'],
                 'district' => District::find($this->district_id)['name'],
-                'address' => $this->address,
-                'references' => $this->references
+               
             ]);
 
         }

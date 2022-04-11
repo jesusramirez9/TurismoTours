@@ -1,10 +1,15 @@
 <div>
+    <div class="my-6 md:my-10">
+        <p class="text-center font-semibold tracking-wider text-lg lg:text-2xl">
+            Elige tu siguiente destino
+        </p>
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 xl:gap-8">
-        <div class="text-center btn_filter_rp">
+        {{-- <div class="text-center btn_filter_rp">
             <button class="bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-white show-modal">
                 Filtrar
             </button>
-        </div>
+        </div> --}}
         {{-- <aside class="category_filter_web">
             <div id="container-main">
                 <div class="accordion-container">
@@ -43,10 +48,11 @@
                 Eliminar filtros
             </x-jet-button>
         </aside> --}}
+       
         <div class="md:col-span-2 lg:col-span-5">
             
             @if ($view == 'grid')
-                <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
+                <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mx-6 md:mx-0">
                     @forelse ($products as $product)
                         <li class="bg-white  ">
                             <article class="border-2 overflow-hidden border-gray-300 rounded-xl zoomcatalg ">

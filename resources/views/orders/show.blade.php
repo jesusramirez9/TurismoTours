@@ -23,7 +23,7 @@
                     <i class="fas fa-truck text-white"></i>
                 </div>
                 <div class="absolute -left-1 mt-0.5">
-                    <p class="text-sm md:text-base">Enviado</p>
+                    <p class="text-sm md:text-base">Procesando</p>
                 </div>
             </div>
 
@@ -65,14 +65,12 @@
                 <span class="text-gray-600 font-bold">Estado: </span>
                 Recibido
             </p>
-            <p>En este estado el producto ya se encuentra registrado en nuestras instalaciones, estaremos alistando
-                tu producto para enviarlo y/o lo recogas en tienda.</p>
+            <p>En este estado el servicio ya se encuentra registrado en nuestras instalaciones.</p>
             <p>
                 <span class="text-gray-600 font-bold">Estado: </span>
-                Enviado
+                Procesando
             </p>
-            <p>En este estado el producto ya se encuentra en camino y/o listo para que lo recogas en nuestras
-                instalaciones.</p>
+            <p>En este estado el servicio ya se encuentra en proceso para la reserva.</p>
 
             <p>
                 <span class="text-gray-600 font-bold">Estado: </span>
@@ -86,8 +84,8 @@
         </div>
 
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
-            <p class="colorbroywm font-bold uppercase"> <span class=" font-bold">Número de orden:</span>
-                Orden-{{ $order->id }}</p>
+            <p class="colorbroywm font-bold uppercase"> <span class=" font-bold">Número de reserva:</span>
+                Reserva-{{ $order->id }}</p>
             @if ($order->status == 1)
                 <x-button-enlace class=" bg-red-400 ml-auto cursor-pointer"
                     href="{{ route('orders.payment', $order) }}">Ir a pagar</x-button-enlace>
@@ -98,23 +96,23 @@
                 <div>
                     <p class="text-lg  font-bold uppercase">Envío</p>
                     @if ($order->envio_type == 1)
-                        <p class="text-sm colorbroywm font-semibold">Los productos deben ser recogidos en tienda</p>
+                        <p class="text-sm colorbroywm font-semibold">Usted será recogido en la siguiente dirección:</p>
                         <p class="text-sm colorbroywm ">Calle falsa 123</p>
                     @else
-                        <p class="text-sm colorbroywm font-semibold">Los productos serán enviados a:</p>
-                        <p class="text-sm colorbroywm ">{{ $envio->address }}</p>
+                        <p class="text-sm colorbroywm font-semibold">Usted será recogido en la siguiente dirección:</p>
+                     
                         <p class="colorbroywm ">{{ $envio->department }} - {{ $envio->city }} -
                             {{ $envio->district }}</p>
-                        <p class="text-sm colorbroywm font-semibold">Referencia del lugar:</p>
-                        <p class="text-sm colorbroywm ">{{ $envio->references }}</p>
+                        {{-- <p class="text-sm colorbroywm font-semibold">Referencia del lugar:</p>
+                        <p class="text-sm colorbroywm ">{{ $envio->references }}</p> --}}
                     @endif
                 </div>
 
                 <div>
                     <p class="text-lg  font-bold uppercase">Datos de contacto</p>
-                    <p class="text-sm  font-semibold">Persona que recibirá el producto: </p>
+                    <p class="text-sm  font-semibold">Persona quien reservó el tour: </p>
                     <p class="colorbroywm">{{ $order->contact }}</p>
-                    <p class="text-sm  font-semibold">Teléfono de contacto:</p>
+                    <p class="text-sm  font-semibold">Celular de contacto:</p>
                     <p class="colorbroywm"> {{ $order->phone }}</p>
                 </div>
             </div>
@@ -128,7 +126,7 @@
                     <tr class=" font-bold">
                         <th></th>
                         <th class="text-xs sm:text-base">Precio</th>
-                        <th class="text-xs sm:text-base">Canti</th>
+                        <th class="text-xs sm:text-base">Canti/personas</th>
                         <th class="text-xs sm:text-base">total</th>
                     </tr>
                 </thead>
@@ -162,7 +160,7 @@
                                 S/{{ $item->price }}
                             </td>
                             <td class="text-center colorbroywm font-bold text-xs sm:text-base">
-                                {{ $item->qty }}
+                                {{ $item->qty }} personas
                             </td>
                             <td class="text-center colorbroywm font-bold text-xs sm:text-base">
                                 S/{{ $item->price * $item->qty }}

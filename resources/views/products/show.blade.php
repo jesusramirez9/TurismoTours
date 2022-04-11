@@ -2,7 +2,7 @@
 
 
     <div class="container  py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24 " >
             <div>
                 <!-- Place somewhere in the <body> of your page -->
                 {{-- <div class="md:mt-0 mb-3">
@@ -21,19 +21,19 @@
 
             </div>
             <div class="-mt-8 md:mt-12">
-                <p class="text-base mb-4">Calificación: {{ round($product->reviews->avg('rating'), 1) }} <i
+                <p class="text-base mb-4 mx-6 md:mx-0">Calificación: {{ round($product->reviews->avg('rating'), 1) }} <i
                         class="fas fa-star text-yellow-400 "></i></p>
-                <p class="mb-4 uppercase"> <i class="fas fa-arrow-right mr-4"></i> <span class="">
+                <p class="mb-4 uppercase mx-6 md:mx-0"> <i class="fas fa-arrow-right mr-4"></i> <span class="">
                         {{ $product->subcategory->name }}</span> </p>
 
-                <h1 class=" font-bold text-3xl"> {{ $product->name }}</h1>
-                <div class="flex mt-4">
+                <h1 class=" font-bold text-3xl mx-6 md:mx-0"> {{ $product->name }}</h1>
+                <div class="flex mt-4 mx-6 md:mx-0">
 
                     <a class="underline hover:text-orange-600" href="#resña">{{ count($product->reviews) }}
                         comentarios
                         de nuestros clientes</a>
                 </div>
-                <div class="flex items-center">
+                <div class="flex items-center mx-6 md:mx-0">
                     <p class="text-2xl my-4 font-semibold "><span class="text-xs">S/</span>
                         {{ $product->price }}</p>
                     <div class="mx-4">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="text-justify normal-case mb-4">
-                    <p>{!! $product->description !!}</p>
+                    {{-- <p>{!! $product->description !!}</p> --}}
                 </div>
                 {{-- <div class="bg-white rounded-lg shadow-lg mb-6 ">
                     <div class="flex p-4 items-center">
@@ -65,9 +65,20 @@
                 @else
                     @livewire('add-cart-item', ['product' => $product])
                 @endif
-
-
             </div>
+        </div>
+        <div class="container mt-5 md:mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 shadow-xl p-4 md:p-6  divide-gray-500  divide-opacity-20">
+                <div>
+                    <p class="text-justify">
+                        {!! $product->specification !!}
+                    </p>
+                </div>
+                <div >
+                    <p class="text-justify">{!! $product->description !!}</p>
+                </div>
+            </div>
+            
         </div>
 
         {{-- <div class="">
@@ -91,9 +102,9 @@
         </div> --}}
 
 
-        <div class="text-center">
-            <div class="text-center py-4 md:py-8 ">
-                <p class="text-xl md:text-2xl ">Más tours encontrados en Alecka Tours <span
+        <div class="text-center ">
+            <div class="text-center py-8 md:py-8 lg:py-14">
+                <p class="text-lg md:text-2xl ">Más tours encontrados en Alecka Tours | <span
                         class="text-black font-semibold text-xl lg:text-2xl">{{ $product->subcategory->name }}</span>
                 </p>
             </div>
@@ -136,8 +147,8 @@
                                         @endif
                                         <div class="flex justify-center py-4">
                                             <button
-                                                class="text-white add_prod font-medium text-sm bg_pricipal px-2 py-2 rounded-xl"><i
-                                                    class="fa fa-shopping-cart mr-2"></i>Agregar</button>
+                                                class="text-white add_prod font-medium text-sm bg_pricipal px-5 py-2 rounded-xl"><i
+                                                class="fa-solid fa-magnifying-glass mr-2"></i>Ver</button>
                                         </div>
 
 

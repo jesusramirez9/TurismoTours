@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,16 +12,16 @@ class ResumenMailable extends Mailable
 {
     use Queueable, SerializesModels;
     public $subject = "Resumen de reserva";
-    public $compra;
+    public $order;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($compra)
+    public function __construct(Order $order)
     {
         //
-        $this->compra = $compra;
+        $this->order = $order;
     }
 
     /**
@@ -30,6 +31,11 @@ class ResumenMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.resumen');
+        $items = json_decode($this->order->content);
+        $envio = json_decode($this->order->envio);
+
+        return $this->from('no-reply@trepstom.com', 'Resumen de la reserva')
+                    ->view('emails.resumen', compact('items', 'envio'));
+
     }
 }

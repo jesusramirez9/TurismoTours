@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container my-10">
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8 ">
-            <div class="">
+            <div class="mx-6 md:mx-0">
                 <p class="my-4 text-2xl font-bold">Contáctanos:</p>
                 <form action="{{ route('contacto.store') }}" method="POST">
                     @csrf
